@@ -1,32 +1,25 @@
 import React from "react";
 
-export const Text = (props) => {
-  const { size, color, align, title } = props;
+export const Input = (props) => {
+  const { size, borderColor, placeholder } = props;
 
   const defaultClass = "font-sans";
   const classes={ 
     sizes: {
-        small: "text-sm",
-        medium: "text-base",
-        large: "text-lg",
+      small: "text-sm h-8",
+      medium: "text-base h-10",
+      large: "text-lg h-12",
     },
-    colors: {
-        primary: "text-blue-500",
-        secondary: "text-blue-300"
-    },
-    aligns: {
-        left: "text-left",
-        center: "text-center",
-        right: "text-right",
+    borderColors: {
+      primary: "border border-gray-300",
+      secondary: "border border-gray-500",
     }
   };  
   return (
-    <p className=
-        {
-        defaultClass + " " + classes.sizes[size] + " " + classes.colors[color] + " " + classes.aligns[align]
-        }
-    >
-      {title}
-    </p>
+    <input
+      type="text"
+      className={`${defaultClass} ${classes.sizes[size]} ${classes.borderColors[borderColor]}`}
+      placeholder={placeholder}
+    />
   );
 };
